@@ -132,11 +132,14 @@ nav{
 
 .menu{
     position: fixed;
+    z-index: 10;
     left: 0px;
     top: 0px;
     background: rgba(0,0,0,0.9);
     height: 100vh;
     width: 100vw;
+    
+	
 
     a{
         position: relative;       
@@ -158,4 +161,36 @@ nav{
 
         }
     }
+}
+
+.menuAnimation{
+    animation-name: menu;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+}
+
+.menuAnimation2{
+    animation-name: menu2;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-iteration-count: 1;
+}
+
+@keyframes menu{
+	from{
+		transform: translate(0, -100vh);
+	}
+	to{
+		transform: translate(0, 0vh);
+	}
+}
+
+@keyframes menu2{
+	from{
+		transform: translate(0, 0vh);
+	}
+	to{
+		transform: translate(0, -100vh);
+	}
 }
