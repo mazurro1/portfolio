@@ -1,5 +1,5 @@
 import React from 'react';
-import './sass/header.sass';
+import './sass/header.scss';
 
 class Header extends React.Component {
     state = {

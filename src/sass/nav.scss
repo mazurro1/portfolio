@@ -1,0 +1,65 @@
+nav{
+    position: fixed;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    .content{   
+        padding: 10px;
+        background: rgba(0,0,0,0.9);
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+
+        .logo{
+            position: relative;
+            left: 50%;
+            top: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+            
+            img{
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        .name{
+            font-family: 'Satisfy', cursive;
+            font-size: 2.5rem;
+            position: relative;
+            top: 50%;
+            transform: translate(0,-50%);
+            text-align: center;
+            color: white;
+        }
+
+        .bar{
+            position: relative;
+            height: 100px;
+            width: 100px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            background: #0cf;
+            border-radius: 50%;
+            .all{
+                position: relative;
+                height: 50px;
+                width: 50px;
+                top: 55%;
+                left: 6%;
+                transform: rotate(90deg) translate(-50%,-50%);
+
+            .first, .second, .third{
+                position: relative;
+                display: inline-block;
+                height: 50px;
+                width: 4px;
+                margin: 5px;
+                background: black;
+                border-radius: 5px;
+            }
+            }
+        }
+    }
+}

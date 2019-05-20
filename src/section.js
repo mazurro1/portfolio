@@ -1,5 +1,5 @@
 import React from 'react';
-import './sass/section.sass';
+import './sass/section.scss';
 
 class Section extends React.Component {
     state = {

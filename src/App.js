@@ -1,5 +1,5 @@
 import React from 'react';
-import './sass/app.sass';
+import './sass/app.scss';
 import Navigation from './navigation';
 import Header from './header';
 import Section from './section';
