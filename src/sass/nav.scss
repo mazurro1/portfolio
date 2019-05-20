@@ -1,25 +1,24 @@
 nav{
-    position: fixed;
-    width: 80%;
-    left: 50%;
-    transform: translate(-50%, 0);
+    
     .content{   
-        padding: 10px;
+        position: fixed;
+        z-index: 100;
+        width: 50%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        padding: 5px;
         background: rgba(0,0,0,0.9);
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
+        border-bottom-left-radius: 55px;
+        border-bottom-right-radius: 55px;
+        border-top-right-radius: 55px;
 
         .logo{
             position: relative;
-            left: 50%;
             top: 50%;
-            width: 100px;
-            height: 100px;
-            transform: translate(-50%, -50%);
+            transform: translate(0, -50%);
             
             img{
-                width: 100px;
-                height: 100px;
+                width: 80px;
             }
         }
 
@@ -35,31 +34,128 @@ nav{
 
         .bar{
             position: relative;
-            height: 100px;
-            width: 100px;
-            left: 50%;
+            float: right;
+            height: 80px;
+            width: 80px;
             top: 50%;
-            transform: translate(-50%,-50%);
-            background: #0cf;
+            transform: translate(0,-50%);
+            background-color: #0cf;
             border-radius: 50%;
+            transition-property: background-color, border-radius;
+            transition-duration:0.5s;
+            transition-timing-function: ease;
+            &:hover{
+                background-color: white;
+            }
             .all{
-                position: relative;
-                height: 50px;
-                width: 50px;
-                top: 55%;
-                left: 6%;
-                transform: rotate(90deg) translate(-50%,-50%);
+                position: absolute;
+                top: 19%;
+                left: 28%;
+                transform: rotate(90deg);
+                transition-property: transform;
+                transition-duration:0.5s;
+                transition-timing-function: ease;
+                
 
-            .first, .second, .third{
-                position: relative;
-                display: inline-block;
-                height: 50px;
-                width: 4px;
-                margin: 5px;
-                background: black;
-                border-radius: 5px;
+                .first, .second, .third{
+                    position: relative;
+                    display: inline-block;
+                    height: 40px;
+                    width: 4px;
+                    margin: 3px;
+                    background: black;
+                    border-radius: 5px;
+                    transition-property: transform;
+                    transition-duration:0.5s;
+                    transition-timing-function: ease;
+                }
+
             }
+        }
+
+
+        .bar_active{
+            position: relative;
+            float: right;
+            height: 80px;
+            width: 80px;
+            top: 50%;
+            transform: translate(0,-50%);
+            background-color: #0cf;
+            border-radius: 50%;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            transition-property: background-color, border-radius;
+            transition-duration:0.5s;
+            transition-timing-function: ease;
+            &:hover{
+                background-color: white;
             }
+            .all{
+                position: absolute;
+                top: 19%;
+                left: 28%;
+                // transform: rotate(-90deg);
+                transition-property: transform;
+                transition-duration:0.5s;
+                transition-timing-function: ease;
+                
+
+                .first, .second, .third{
+                    position: relative;
+                    display: inline-block;
+                    height: 40px;
+                    width: 4px;
+                    margin: 3px;
+                    background: black;
+                    border-radius: 5px;
+                    transition-property: transform;
+                    transition-duration:0.5s;
+                    transition-timing-function: ease;
+                }
+
+                .first{
+                    transform: rotate(-45deg) translate(8px,10px);
+                }
+
+                .second{
+                    transform: rotate(45deg) translate(2px,0);
+                }
+
+                .third{
+                    opacity: 0;
+                }
+            }
+        }
+    }
+}
+
+.menu{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background: rgba(0,0,0,0.9);
+    height: 100vh;
+    width: 100vw;
+
+    a{
+        position: relative;       
+        display: block;
+        text-align: center;
+        top: 30%;
+        transform: translate(0, -50%);
+        padding: 30px 0px;
+        margin: 5px 0px;
+        font-size: 2.5rem;
+        color: white;
+        // background-color: rgba(0, 204, 255, 0.2); 
+        background-color: rgba(0, 0, 0, 0); 
+
+        &:hover{
+            text-decoration: none;
+            color: black;
+            background-color: rgba(0, 204, 255, 1);
+
         }
     }
 }
