@@ -8,6 +8,33 @@ class Navigation extends React.Component {
         menuActive: false,
     }
 
+    navigations = [
+        {
+            id: 1,
+            name: 'O mnie',
+            exact: true,
+            page: '/',
+        },
+        {
+            id: 2,
+            name: 'Umiejętności',
+            exact: false,
+            page: '/skills',
+        },
+        {
+            id: 3,
+            name: 'Portfolio',
+            exact: false,
+            page: '/portfolio',
+        },
+        {
+            id: 4,
+            name: 'Kontakt',
+            exact: false,
+            page: '/contact',
+        },
+    ]
+
     handleBarClick = () => {
 
         this.setState(prevState => ({
@@ -60,22 +87,22 @@ class Navigation extends React.Component {
                         </div>
                     </div>
                 </div>
-                {menuActive && <Menu handleMenuClick={this.handleMenuClick} />}
-            </BrowserRouter>
+
+                {menuActive && <div className="menu">{Menu(this.handleMenuClick, this.navigations)}</div>}
+
+            </BrowserRouter >
         )
     }
 }
 
-const Menu = ({ handleMenuClick }) => {
+const Menu = (handleMenuClick, navigations) => navigations.map(navigation => (
+    <CreateNavigation key={navigation.id} handleMenuClick={handleMenuClick} name={navigation.name} page={navigation.page} exact={navigation.exact} />
+));
+
+
+const CreateNavigation = ({ name, page, exact, handleMenuClick }) => {
     return (
-        <>
-            <div className="menu">
-                <NavLink exact to="/" onClick={handleMenuClick}>O mnie</NavLink>
-                <NavLink to="/skills" onClick={handleMenuClick}>Umiejętności</NavLink>
-                <NavLink to="/portfolio" onClick={handleMenuClick}>Portfolio</NavLink>
-                <NavLink to="/contact" onClick={handleMenuClick}>Kontakt</NavLink>
-            </div>
-        </>
+        <NavLink exact={exact} to={page} onClick={handleMenuClick}>{name}</NavLink>
     )
 }
 
