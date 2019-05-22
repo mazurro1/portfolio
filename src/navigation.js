@@ -48,6 +48,8 @@ class Navigation extends React.Component {
         }))
     }
 
+
+
     selectClass = () => {
         if (this.state.menuActive) {
             return 'bar_active';
@@ -86,6 +88,7 @@ class Navigation extends React.Component {
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 {menuActive && <div className="menu">{Menu(this.handleMenuClick, this.navigations)}</div>}

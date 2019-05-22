@@ -1,4 +1,5 @@
 .header{
+    position: relative;
     height: 100vh;
     background: url('../images/header.png');
     background-size: 100vw 100vh;
@@ -11,5 +12,46 @@
         top: 50%;
         transform: translate(0,-50%);
         color: white;
+    }
+
+    .icons{
+        position: fixed;
+        z-index: 20;
+        overflow: hidden;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%,0);
+        background: rgba(0,0,0,0.8);
+        width: 100%;
+        box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.9)inset;
+
+        .allIcons{
+            text-align: center;
+            padding: 20px;
+            
+            a{
+                padding: 40px 8vw;
+      
+                img{
+                    width: 50px;
+             
+
+                    @media all and (max-width: 768px) {
+                        &{
+                            margin: 25px;
+                        }
+                    }
+                }
+
+                &:hover{
+                    background: rgba(0,0,0,0.5);
+                    @media all and (max-width: 768px) {
+                        &{
+                            border-radius: 25px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
