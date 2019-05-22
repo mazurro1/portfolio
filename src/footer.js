@@ -8,9 +8,9 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <>
-                <h1>Footer</h1>
-            </>
+            <div className="container">
+                © 2019 Hubert Mazur | Wszelkie prawa zastrzeżone.
+            </div>
         )
     }
 }

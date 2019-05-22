@@ -68,17 +68,17 @@ class Navigation extends React.Component {
             <BrowserRouter>
                 <div className="content">
                     <div className="row">
-                        <div className="col-4">
+                        <div className="col-lg-2 col-12">
                             <div className="logo">
                                 <NavLink exact to="/"><img src={logo} alt="" /></NavLink>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-lg-8 col-10">
                             <div className="name">
-                                Hubert Mazur
+                                <NavLink exact to="/">Hubert Mazur</NavLink>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-lg-2 col-2">
                             <div className={classStyleBar} onClick={this.handleBarClick}>
                                 <div className="all">
                                     <div className="first"></div>
