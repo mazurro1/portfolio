@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import './sass/nav.scss';
+import menu from './images/menuActive.png';
+import tool from './images/toolActive.png';
+import social from './images/social.png';
 
 
 class Navigation extends React.Component {
@@ -34,8 +37,6 @@ class Navigation extends React.Component {
             page: '/contact',
         },
     ]
-
-
 
 
 
@@ -73,16 +74,34 @@ class Navigation extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="selectMenu">
-                    <div className="ring">
-                        ring
-                    </div>
-                </div>
-                {menuActive && <div className="menu">{Menu(this.props.handleMenuClick, this.navigations)}</div>}
+                {menuActive ?
+                    <CreateToolInMenu
+                        handleClickTool={this.props.handleMenuClickTool}
+                        toolInMenuActive={this.props.toolInMenuActive}
+                        menuInMenuActive={this.props.menuInMenuActive}
+                        socialInMenuActive={this.props.socialInMenuActive}
+                    />
+                    : null}
 
-            </BrowserRouter >
+                {menuActive ?
+                    <CreateMenuBg
+                        navigations={this.navigations}
+                        handleMenuClick={this.props.handleMenuClick}
+                        menuInMenuActive={this.props.menuInMenuActive}
+                    /> : null}
+
+
+            </BrowserRouter>
         )
     }
+}
+
+const CreateMenuBg = ({ menuInMenuActive, handleMenuClick, navigations }) => {
+    return (
+        <div className="menu">
+            {menuInMenuActive ? Menu(handleMenuClick, navigations) : null}
+        </div>
+    )
 }
 
 const Menu = (handleMenuClick, navigations) => navigations.map(navigation => (
@@ -93,6 +112,48 @@ const Menu = (handleMenuClick, navigations) => navigations.map(navigation => (
 const CreateNavigation = ({ name, page, exact, handleMenuClick }) => {
     return (
         <NavLink exact={exact} to={page} onClick={handleMenuClick}>{name}</NavLink>
+    )
+}
+
+const CreateToolInMenu = ({ handleClickTool, menuInMenuActive, toolInMenuActive, socialInMenuActive }) => {
+    const classRingMenu = () => {
+        if (!menuInMenuActive) {
+            return 'ring_active';
+        }
+        else {
+            return 'ring';
+        }
+    }
+    const classRingTool = () => {
+        if (!toolInMenuActive) {
+            return 'ring_active';
+        }
+        else {
+            return 'ring';
+        }
+    }
+
+    const classRingSocial = () => {
+        if (!socialInMenuActive) {
+            return 'ring_active';
+        }
+        else {
+            return 'ring';
+        }
+    }
+
+    return (
+        <div className="row selectMenu">
+            <div className={classRingMenu()} onClick={() => handleClickTool('menu')}>
+                <img src={menu} alt="menu" />
+            </div>
+            <div className={classRingTool()} onClick={() => handleClickTool('tool')}>
+                <img src={tool} alt="tool" />
+            </div>
+            <div className={classRingSocial()} onClick={() => handleClickTool('social')}>
+                <img src={social} alt="social" />
+            </div>
+        </div >
     )
 }
 

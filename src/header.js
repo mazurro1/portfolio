@@ -50,6 +50,8 @@ class Header extends React.Component {
         })
     }
 
+
+
     componentDidMount() {
 
         this.indexInterval = setInterval(() => {
@@ -68,28 +70,32 @@ class Header extends React.Component {
         clearInterval(this.indexInterval);
     }
 
-    ClassIcons = () => {
-        if (this.state.indexText === this.text.length) {
-            return <CreateIcons icons={this.icons} />
-        } else {
-            return null
-        }
-    }
 
     render() {
         const { welcome } = this.state;
-        const { menuActive } = this.props;
+        const { menuActive, socialInMenuActive } = this.props;
         return (
 
             <div className="header">
                 <h1>{welcome}</h1>
 
-                {menuActive ? <CreateForm welcome={this.state.welcome} clickChange={this.handleOnChangeText} /> : null}
-                {menuActive ? this.ClassIcons() : null}
+                {menuActive ?
+                    <IfMenuToolActive
+                        welcome={this.state.welcome}
+                        clickChange={this.handleOnChangeText}
+                        toolInMenuActive={this.props.toolInMenuActive}
+                    /> : null}
+                {socialInMenuActive && menuActive ? <CreateIcons icons={this.icons} /> : null}
             </div>
 
         )
     }
+}
+
+const IfMenuToolActive = ({ welcome, clickChange, toolInMenuActive }) => {
+    return (
+        toolInMenuActive ? <CreateForm welcome={welcome} clickChange={clickChange} /> : null
+    )
 }
 
 const CreateIcons = ({ icons }) => {
@@ -121,7 +127,7 @@ const CreateForm = ({ welcome, clickChange }) => {
     return (
         <form>
             <label htmlFor="welcomeText">
-                <p>Wpisz swój tekst powitalny!</p>
+                <p>Wpisz swój tekst powitalny</p>
                 <input type="text" id="welcomeText" width="48" height="48" value={welcome} onChange={clickChange} />
             </label>
         </form>
