@@ -130,6 +130,14 @@ const CreateForm = ({ welcome, clickChange }) => {
                 <p>Wpisz swój tekst powitalny</p>
                 <input type="text" id="welcomeText" width="48" height="48" value={welcome} onChange={clickChange} />
             </label>
+            <label htmlFor="changeImage">
+                <p>Zmień zdjęcie główne</p>
+                <input type="text" id="changeImage" width="48" height="48" value={welcome} onChange={clickChange} />
+            </label>
+            <label htmlFor="changeColor">
+                <p>Zmień kolorystyke strony</p>
+                <input type="text" id="changeColor" width="48" height="48" value={welcome} onChange={clickChange} />
+            </label>
         </form>
     )
 }

@@ -5,7 +5,7 @@ import arrowUp from '../images/arrowUp.png';
 
 class AboutMe extends React.Component {
     state = {
-        arrowActive: false,
+        arrowActive: true,
         classArrow: 'noActive',
         classArrowRotate: 'noActiveArrow'
     }
