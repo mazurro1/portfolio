@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './sass/nav.scss';
 import menu from './images/menuActive.png';
 import tool from './images/toolActive.png';
@@ -55,7 +55,7 @@ class Navigation extends React.Component {
 
 
         return (
-            <BrowserRouter>
+            <>
                 <div className="content">
                     <div className="row">
                         <div className="col-lg-10 col-10">
@@ -82,7 +82,6 @@ class Navigation extends React.Component {
                         socialInMenuActive={this.props.socialInMenuActive}
                     />
                     : null}
-
                 {menuActive ?
                     <CreateMenuBg
                         navigations={this.navigations}
@@ -90,11 +89,13 @@ class Navigation extends React.Component {
                         menuInMenuActive={this.props.menuInMenuActive}
                     /> : null}
 
-
-            </BrowserRouter>
+            </>
         )
     }
 }
+
+
+
 
 const CreateMenuBg = ({ menuInMenuActive, handleMenuClick, navigations }) => {
     return (
@@ -104,9 +105,12 @@ const CreateMenuBg = ({ menuInMenuActive, handleMenuClick, navigations }) => {
     )
 }
 
+
+
 const Menu = (handleMenuClick, navigations) => navigations.map(navigation => (
     <CreateNavigation key={navigation.id} handleMenuClick={handleMenuClick} name={navigation.name} page={navigation.page} exact={navigation.exact} />
 ));
+
 
 
 const CreateNavigation = ({ name, page, exact, handleMenuClick }) => {
@@ -114,6 +118,7 @@ const CreateNavigation = ({ name, page, exact, handleMenuClick }) => {
         <NavLink exact={exact} to={page} onClick={handleMenuClick}>{name}</NavLink>
     )
 }
+
 
 const CreateToolInMenu = ({ handleClickTool, menuInMenuActive, toolInMenuActive, socialInMenuActive }) => {
     const classRingMenu = () => {
@@ -132,7 +137,6 @@ const CreateToolInMenu = ({ handleClickTool, menuInMenuActive, toolInMenuActive,
             return 'ring';
         }
     }
-
     const classRingSocial = () => {
         if (!socialInMenuActive) {
             return 'ring_active';
@@ -141,9 +145,7 @@ const CreateToolInMenu = ({ handleClickTool, menuInMenuActive, toolInMenuActive,
             return 'ring';
         }
     }
-
     return (
-
         <div className="row selectMenu">
             <div className={classRingMenu()} onClick={() => handleClickTool('menu')}>
                 <img src={menu} alt="menu" />
@@ -155,8 +157,10 @@ const CreateToolInMenu = ({ handleClickTool, menuInMenuActive, toolInMenuActive,
                 <img src={social} alt="social" />
             </div>
         </div >
-
     )
 }
+
+
+
 
 export default Navigation;

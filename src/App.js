@@ -2,8 +2,9 @@ import React from 'react';
 import './sass/app.scss';
 import Navigation from './navigation';
 import Header from './header';
-import Section from './section';
 import Footer from './footer';
+import Section from './section';
+import { BrowserRouter } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -48,7 +49,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <BrowserRouter>
         <nav>
           <Navigation
             menuActive={this.state.menuActive}
@@ -73,7 +74,7 @@ class App extends React.Component {
         <footer>
           <Footer />
         </footer>
-      </>
+      </BrowserRouter>
     );
   }
 }
