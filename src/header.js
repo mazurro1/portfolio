@@ -12,7 +12,7 @@ class Header extends React.Component {
         iconsActive: false,
     }
 
-    text = 'Witaj na moim portfolio!';
+    text = 'Witam w moim portfolio!';
     icons = [
         {
             id: 1,
@@ -42,7 +42,13 @@ class Header extends React.Component {
             link: 'https://github.com/mazurro1',
             alt: 'github',
         },
-    ]
+    ];
+
+    handleOnChangeText = e => {
+        this.setState({
+            welcome: e.target.value,
+        })
+    }
 
     componentDidMount() {
 
@@ -71,12 +77,15 @@ class Header extends React.Component {
     }
 
     render() {
-        const { iconsActive, welcome } = this.state;
+        const { welcome } = this.state;
+        const { menuActive } = this.props;
         return (
 
             <div className="header">
                 <h1>{welcome}</h1>
-                {!iconsActive ? this.ClassIcons() : null}
+
+                {menuActive ? <CreateForm welcome={this.state.welcome} clickChange={this.handleOnChangeText} /> : null}
+                {menuActive ? this.ClassIcons() : null}
             </div>
 
         )
@@ -105,6 +114,17 @@ const NewIcon = ({ target, image, link, alt }) => {
                 <img src={image} alt={alt} />
             </a>
         </div>
+    )
+}
+
+const CreateForm = ({ welcome, clickChange }) => {
+    return (
+        <form>
+            <label htmlFor="welcomeText">
+                <p>Wpisz swój tekst powitalny!</p>
+                <input type="text" id="welcomeText" width="48" height="48" value={welcome} onChange={clickChange} />
+            </label>
+        </form>
     )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import './sass/nav.scss';
-import logo from './images/logo.png';
+
 
 class Navigation extends React.Component {
     state = {
@@ -35,23 +35,12 @@ class Navigation extends React.Component {
         },
     ]
 
-    handleBarClick = () => {
 
-        this.setState(prevState => ({
-            menuActive: !prevState.menuActive,
-        }))
-    }
-
-    handleMenuClick = () => {
-        this.setState(prevState => ({
-            menuActive: !prevState.menuActive,
-        }))
-    }
 
 
 
     selectClass = () => {
-        if (this.state.menuActive) {
+        if (this.props.menuActive) {
             return 'bar_active';
         } else {
             return 'bar';
@@ -59,7 +48,7 @@ class Navigation extends React.Component {
     }
 
     render() {
-        const { menuActive } = this.state;
+        const { menuActive } = this.props;
         const classStyleBar = this.selectClass();
 
 
@@ -68,18 +57,13 @@ class Navigation extends React.Component {
             <BrowserRouter>
                 <div className="content">
                     <div className="row">
-                        <div className="col-lg-2 col-12">
-                            <div className="logo">
-                                <NavLink exact to="/"><img src={logo} alt="" /></NavLink>
-                            </div>
-                        </div>
-                        <div className="col-lg-8 col-10">
+                        <div className="col-lg-10 col-10">
                             <div className="name">
                                 <NavLink exact to="/">Hubert Mazur</NavLink>
                             </div>
                         </div>
                         <div className="col-lg-2 col-2">
-                            <div className={classStyleBar} onClick={this.handleBarClick}>
+                            <div className={classStyleBar} onClick={this.props.handleBarClick}>
                                 <div className="all">
                                     <div className="first"></div>
                                     <div className="second"></div>
@@ -88,10 +72,13 @@ class Navigation extends React.Component {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-                {menuActive && <div className="menu">{Menu(this.handleMenuClick, this.navigations)}</div>}
+                <div className="selectMenu">
+                    <div className="ring">
+                        ring
+                    </div>
+                </div>
+                {menuActive && <div className="menu">{Menu(this.props.handleMenuClick, this.navigations)}</div>}
 
             </BrowserRouter >
         )
