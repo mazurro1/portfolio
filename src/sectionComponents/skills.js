@@ -32,12 +32,12 @@ class Skills extends React.Component {
 
 
         return (
-            <div id="skills" className={this.state.classArrow}>
+            <div id="portfolio" className={this.state.classArrow}>
                 <div className="container">
                     <div className="arrow" onClick={this.handleArrow}>
                         <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
-                    <h1>Umiejętności</h1>
+                    <h1>Skills</h1>
                     <div className="row">
 
                     </div>
