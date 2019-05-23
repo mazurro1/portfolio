@@ -143,6 +143,7 @@ const CreateToolInMenu = ({ handleClickTool, menuInMenuActive, toolInMenuActive,
     }
 
     return (
+
         <div className="row selectMenu">
             <div className={classRingMenu()} onClick={() => handleClickTool('menu')}>
                 <img src={menu} alt="menu" />
@@ -154,6 +155,7 @@ const CreateToolInMenu = ({ handleClickTool, menuInMenuActive, toolInMenuActive,
                 <img src={social} alt="social" />
             </div>
         </div >
+
     )
 }
 

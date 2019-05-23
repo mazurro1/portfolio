@@ -163,6 +163,12 @@ nav{
         color: white;
         // background-color: rgba(0, 204, 255, 0.2); 
         background-color: rgba(0, 0, 0, 0); 
+        @media all and (max-width: 767px){
+            &{
+                top: 40vh;
+                padding: 15px 0px;
+            }
+        }
 
         &:hover{
             text-decoration: none;
@@ -207,10 +213,11 @@ nav{
 
 .selectMenu{
     position: fixed;
+    width: 360px;
     z-index: 20;
-    top: 7vh;
-    left: 50%;
-    transform: translate(-50%, 0);
+    top: 12vh;
+    left: 53%;
+    transform: translate(-50%,0);
    
 
     .ring{
@@ -241,3 +248,4 @@ nav{
         }
     }
 }
+
