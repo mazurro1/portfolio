@@ -38,6 +38,7 @@ class Contact extends React.Component {
                         <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
                     <h1>Kontakt</h1>
+                    <p>Masz pytanie? Napisz!</p>
                     <div className="row">
 
                     </div>

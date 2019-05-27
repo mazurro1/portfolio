@@ -107,9 +107,9 @@ class Skills extends React.Component {
                         <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
                     <h1>Umiejętności</h1>
-                    <div className="technology">
-                        <p>Lista technologii, ktore opanowalem na poziomie podstawowym i aktualnie je rozwijam.</p>
-                    </div>
+
+                    <p>Lista programów oraz technologii, ktore opanowalem.</p>
+
                     <div className="row">
                         <div className="col icons">
                             <CreateIcons icons={this.icons} />
