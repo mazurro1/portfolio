@@ -1,6 +1,6 @@
 #skills{
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 50px 0;
     padding-top: 10px;
     width: 100%;
@@ -59,6 +59,21 @@
 
         img{
             width: 80px;
+        }
+    }
+
+    .icons{
+        text-align: center;
+        img{
+            width: 70px;
+            margin: 50px;
+            transition-property: transform;
+            transition-duration: 0.5s;
+            transition-timing-function: ease;
+
+            &:hover{
+                transform: scale(1.5, 1.5);
+            }
         }
     }
     

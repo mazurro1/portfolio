@@ -2,6 +2,16 @@ import React from 'react';
 import '../sass/skills.scss';
 import arrowUp from '../images/arrowUp.png';
 import html from '../images/icon_html5.png';
+import css3 from '../images/icon_css3.png';
+import sass from '../images/icon_sass.png';
+import js from '../images/icon_js.png';
+import bootstrap from '../images/icon_bootstrap.png';
+import react from '../images/icon_react.png';
+import webpack from '../images/icon_webpack.png';
+import github from '../images/icon_github.png';
+import photoshop from '../images/icon_ps.png';
+import illustrator from '../images/icon_ai.png';
+import blender from '../images/icon_blender.png';
 
 
 class Skills extends React.Component {
@@ -16,6 +26,56 @@ class Skills extends React.Component {
             id: 1,
             alt: 'icon html',
             img: html,
+        },
+        {
+            id: 2,
+            alt: 'icon css3',
+            img: css3,
+        },
+        {
+            id: 3,
+            alt: 'icon sass',
+            img: sass,
+        },
+        {
+            id: 4,
+            alt: 'icon bootstrap',
+            img: bootstrap,
+        },
+        {
+            id: 5,
+            alt: 'icon js',
+            img: js,
+        },
+        {
+            id: 6,
+            alt: 'icon react',
+            img: react,
+        },
+        {
+            id: 7,
+            alt: 'icon webpack',
+            img: webpack,
+        },
+        {
+            id: 8,
+            alt: 'icon github',
+            img: github,
+        },
+        {
+            id: 9,
+            alt: 'icon photoshop',
+            img: photoshop,
+        },
+        {
+            id: 10,
+            alt: 'icon illustrator',
+            img: illustrator,
+        },
+        {
+            id: 11,
+            alt: 'icon blender',
+            img: blender,
         },
     ]
 
@@ -51,7 +111,7 @@ class Skills extends React.Component {
                         <p>Lista technologii, ktore opanowalem na poziomie podstawowym i aktualnie je rozwijam.</p>
                     </div>
                     <div className="row">
-                        <div className="col">
+                        <div className="col icons">
                             <CreateIcons icons={this.icons} />
                         </div>
                     </div>
@@ -62,12 +122,17 @@ class Skills extends React.Component {
 }
 
 const CreateIcons = ({ icons }) => {
-    const create = icons.map(icon => { })
+    const create = icons.map(icon => {
+        return (
+            <img src={icon.img} alt={icon.alt} key={icon.id} />
+        )
+    })
     return (
         <>
-            <img src="" alt="" />
+            {create}
         </>
     )
+
 }
 
 
