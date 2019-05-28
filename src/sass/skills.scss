@@ -66,13 +66,19 @@
         text-align: center;
         img{
             width: 70px;
-            margin: 50px;
+            margin: 40px;
             transition-property: transform;
             transition-duration: 0.5s;
             transition-timing-function: ease;
 
             &:hover{
                 transform: scale(1.5, 1.5);
+            }
+
+            @media all and (max-width: 767px){
+                &{
+                    margin: 20px;
+                }
             }
         }
     }

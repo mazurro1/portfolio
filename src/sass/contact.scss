@@ -61,5 +61,24 @@
             width: 80px;
         }
     }
+
+    .contactIcon{
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 100px;
+        a{
+
+            img{
+                width: 80px;
+                transition-property: transform;
+                transition-duration: 0.2s;
+                transition-timing-function: ease-in;
+
+                &:hover{
+                    transform: scale(1.5,1.5);
+                }
+            }
+        }
+    }
     
 }
