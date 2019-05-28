@@ -102,7 +102,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <BrowserRouter >
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <nav>
           <Navigation
             menuActive={this.state.menuActive}
