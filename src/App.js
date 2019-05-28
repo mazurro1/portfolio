@@ -5,9 +5,16 @@ import Header from './header';
 import Footer from './footer';
 import Section from './section';
 import { BrowserRouter } from 'react-router-dom';
+import arrowUpBlue from './images/arrowUpBlue.png';
+import arrowUpRed from './images/arrowUpRed.png';
+import arrowUpGreen from './images/arrowUpGreen.png';
+import arrowUpGray from './images/arrowUpGray.png';
+
 
 
 class App extends React.Component {
+
+
   state = {
     menuActive: false,
     menuInMenuActive: true,
@@ -17,7 +24,9 @@ class App extends React.Component {
     colorBg: "blueBg",
     colorTxt: "blueTxt",
     choseColor: 'blue',
+    arrowUpColor: arrowUpBlue,
   }
+
 
   handleChangeImageNumber = (index, e) => {
     e.preventDefault();
@@ -64,24 +73,28 @@ class App extends React.Component {
         choseColor: color,
         colorBg: "blueBg",
         colorTxt: "blueTxt",
+        arrowUpColor: arrowUpBlue,
       })
     } else if (color === 'red') {
       this.setState({
         choseColor: color,
         colorBg: "redBg",
         colorTxt: "redTxt",
+        arrowUpColor: arrowUpRed,
       })
     } else if (color === 'green') {
       this.setState({
         choseColor: color,
         colorBg: "greenBg",
         colorTxt: "greenTxt",
+        arrowUpColor: arrowUpGreen,
       })
     } else {
       this.setState({
         choseColor: color,
         colorBg: "grayBg",
         colorTxt: "grayTxt",
+        arrowUpColor: arrowUpGray,
       })
     }
 
@@ -121,6 +134,7 @@ class App extends React.Component {
           <Section
             colorBg={this.state.colorBg}
             colorTxt={this.state.colorTxt}
+            arrowUpColor={this.state.arrowUpColor}
           />
         </section>
         <footer>

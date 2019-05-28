@@ -1,6 +1,5 @@
 import React from 'react';
 import '../sass/skills.scss';
-import arrowUp from '../images/arrowUp.png';
 import html from '../images/icon_html5.png';
 import css3 from '../images/icon_css3.png';
 import sass from '../images/icon_sass.png';
@@ -98,13 +97,13 @@ class Skills extends React.Component {
 
 
     render() {
-        const { colorTxt } = this.props;
+        const { colorTxt, arrowUpColor } = this.props;
 
         return (
             <div id="skills" className={this.state.classArrow}>
                 <div className="container">
                     <div className="arrow" onClick={this.handleArrow}>
-                        <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
+                        <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
                     <h1 className={`${colorTxt}`}>Umiejętności</h1>
 

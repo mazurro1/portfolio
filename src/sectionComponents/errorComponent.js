@@ -1,6 +1,5 @@
 import React from 'react';
 import '../sass/errorComponent.scss';
-import arrowUp from '../images/arrowUp.png';
 
 
 class ErrorComponent extends React.Component {
@@ -29,12 +28,12 @@ class ErrorComponent extends React.Component {
 
 
     render() {
-        const { colorTxt } = this.props;
+        const { colorTxt, arrowUpColor } = this.props;
         return (
             <div id="errorComponent" className={this.state.classArrow}>
                 <div className="container">
                     <div className="arrow" onClick={this.handleArrow}>
-                        <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
+                        <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
                     <h1 className={`${colorTxt}`}>Error</h1>
                     <div className="row">

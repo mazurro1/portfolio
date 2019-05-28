@@ -1,6 +1,5 @@
 import React from 'react';
 import '../sass/contact.scss';
-import arrowUp from '../images/arrowUp.png';
 import facebook from '../images/facebook.png';
 import messenger from '../images/messenger.png';
 import linkedin from '../images/linkedin.png';
@@ -65,14 +64,14 @@ class Contact extends React.Component {
 
 
     render() {
-        const { colorTxt } = this.props;
+        const { colorTxt, arrowUpColor } = this.props;
 
 
         return (
             <div id="contact" className={this.state.classArrow}>
                 <div className="container">
                     <div className="arrow" onClick={this.handleArrow}>
-                        <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
+                        <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
                     <h1 className={`${colorTxt}`}>Kontakt</h1>
                     <p>Masz pytanie? Napisz!</p>

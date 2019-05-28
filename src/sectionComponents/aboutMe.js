@@ -1,6 +1,5 @@
 import React from 'react';
 import '../sass/aboutMe.scss';
-import arrowUp from '../images/arrowUp.png';
 
 
 class AboutMe extends React.Component {
@@ -29,13 +28,13 @@ class AboutMe extends React.Component {
 
 
     render() {
-        const { colorBg, colorTxt } = this.props;
+        const { colorBg, colorTxt, arrowUpColor } = this.props;
 
         return (
             <div id="aboutMe" className={this.state.classArrow}>
                 <div className="container">
                     <div className="arrow" onClick={this.handleArrow}>
-                        <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
+                        <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
                     <h1 className={`${colorTxt}`}>O mnie</h1>
                     <div className="row">
