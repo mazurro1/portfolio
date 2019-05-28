@@ -67,8 +67,9 @@
         margin-top: 50px;
         margin-bottom: 100px;
         a{
-
+            position: relative;
             img{
+                
                 width: 80px;
                 transition-property: transform;
                 transition-duration: 0.2s;

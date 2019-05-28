@@ -13,6 +13,15 @@ class App extends React.Component {
     menuInMenuActive: true,
     toolInMenuActive: false,
     socialInMenuActive: false,
+    choseImage: 1,
+    color: "blue",
+  }
+
+  handleChangeImageNumber = (index, e) => {
+    e.preventDefault();
+    this.setState({
+      choseImage: index,
+    });
   }
 
   handleBarClick = () => {
@@ -59,6 +68,8 @@ class App extends React.Component {
             menuInMenuActive={this.state.menuInMenuActive}
             toolInMenuActive={this.state.toolInMenuActive}
             socialInMenuActive={this.state.socialInMenuActive}
+            choseImage={this.state.choseImage}
+
           />
         </nav>
         <header>
@@ -66,6 +77,9 @@ class App extends React.Component {
             menuActive={this.state.menuActive}
             toolInMenuActive={this.state.toolInMenuActive}
             socialInMenuActive={this.state.socialInMenuActive}
+            choseImage={this.state.choseImage}
+            handleChangeImageNumber={this.handleChangeImageNumber}
+            color={this.state.color}
           />
         </header>
         <section>

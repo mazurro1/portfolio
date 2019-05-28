@@ -4,6 +4,7 @@ import arrowUp from '../images/arrowUp.png';
 import facebook from '../images/facebook.png';
 import messenger from '../images/messenger.png';
 import linkedin from '../images/linkedin.png';
+import github from '../images/github.png';
 
 
 
@@ -35,6 +36,13 @@ class Contact extends React.Component {
             image: linkedin,
             link: 'https://www.linkedin.com/in/hubert-mazur-378a19113/',
             alt: 'Linkedin',
+        },
+        {
+            id: 4,
+            target: "_blank",
+            image: github,
+            link: 'https://github.com/mazurro1',
+            alt: 'github',
         },
     ];
 
