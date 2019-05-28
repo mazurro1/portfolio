@@ -14,7 +14,9 @@ class App extends React.Component {
     toolInMenuActive: false,
     socialInMenuActive: false,
     choseImage: 1,
-    color: "blue",
+    colorBg: "blueBg",
+    colorTxt: "blueTxt",
+    choseColor: 'blue',
   }
 
   handleChangeImageNumber = (index, e) => {
@@ -42,7 +44,6 @@ class App extends React.Component {
       this.setState({
         menuInMenuActive: true,
         toolInMenuActive: false,
-
       })
     } else if (select === 'social') {
       this.setState(prevState => ({
@@ -56,9 +57,39 @@ class App extends React.Component {
     }
   }
 
+  handleChangeColor = (e, color) => {
+    e.preventDefault();
+    if (color === 'blue') {
+      this.setState({
+        choseColor: color,
+        colorBg: "blueBg",
+        colorTxt: "blueTxt",
+      })
+    } else if (color === 'red') {
+      this.setState({
+        choseColor: color,
+        colorBg: "redBg",
+        colorTxt: "redTxt",
+      })
+    } else if (color === 'green') {
+      this.setState({
+        choseColor: color,
+        colorBg: "greenBg",
+        colorTxt: "greenTxt",
+      })
+    } else {
+      this.setState({
+        choseColor: color,
+        colorBg: "grayBg",
+        colorTxt: "grayTxt",
+      })
+    }
+
+  }
+
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter >
         <nav>
           <Navigation
             menuActive={this.state.menuActive}
@@ -69,7 +100,8 @@ class App extends React.Component {
             toolInMenuActive={this.state.toolInMenuActive}
             socialInMenuActive={this.state.socialInMenuActive}
             choseImage={this.state.choseImage}
-
+            colorBg={this.state.colorBg}
+            colorTxt={this.state.colorTxt}
           />
         </nav>
         <header>
@@ -79,11 +111,17 @@ class App extends React.Component {
             socialInMenuActive={this.state.socialInMenuActive}
             choseImage={this.state.choseImage}
             handleChangeImageNumber={this.handleChangeImageNumber}
-            color={this.state.color}
+            colorBg={this.state.colorBg}
+            colorTxt={this.state.colorTxt}
+            handleChangeColor={this.handleChangeColor}
+            choseColor={this.state.choseColor}
           />
         </header>
         <section>
-          <Section />
+          <Section
+            colorBg={this.state.colorBg}
+            colorTxt={this.state.colorTxt}
+          />
         </section>
         <footer>
           <Footer />

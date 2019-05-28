@@ -42,14 +42,14 @@ class Navigation extends React.Component {
 
     selectClass = () => {
         if (this.props.menuActive) {
-            return 'bar_active';
+            return `bar_active ${this.props.colorBg}`;
         } else {
-            return 'bar';
+            return `bar ${this.props.colorBg}`;
         }
     }
 
     render() {
-        const { menuActive } = this.props;
+        const { menuActive, colorBg, colorTxt } = this.props;
         const classStyleBar = this.selectClass();
 
 
@@ -80,6 +80,8 @@ class Navigation extends React.Component {
                         toolInMenuActive={this.props.toolInMenuActive}
                         menuInMenuActive={this.props.menuInMenuActive}
                         socialInMenuActive={this.props.socialInMenuActive}
+                        colorBg={colorBg}
+                        colorTxt={colorTxt}
                     />
                     : null}
                 {menuActive ?
@@ -87,6 +89,7 @@ class Navigation extends React.Component {
                         navigations={this.navigations}
                         handleMenuClick={this.props.handleMenuClick}
                         menuInMenuActive={this.props.menuInMenuActive}
+                        colorBg={colorBg}
                     /> : null}
 
             </>
@@ -97,52 +100,52 @@ class Navigation extends React.Component {
 
 
 
-const CreateMenuBg = ({ menuInMenuActive, handleMenuClick, navigations }) => {
+const CreateMenuBg = ({ menuInMenuActive, handleMenuClick, navigations, colorBg }) => {
     return (
         <div className="menu">
-            {menuInMenuActive ? Menu(handleMenuClick, navigations) : null}
+            {menuInMenuActive ? Menu(handleMenuClick, navigations, colorBg) : null}
         </div>
     )
 }
 
 
 
-const Menu = (handleMenuClick, navigations) => navigations.map(navigation => (
-    <CreateNavigation key={navigation.id} handleMenuClick={handleMenuClick} name={navigation.name} page={navigation.page} exact={navigation.exact} />
+const Menu = (handleMenuClick, navigations, colorBg) => navigations.map(navigation => (
+    <CreateNavigation key={navigation.id} handleMenuClick={handleMenuClick} name={navigation.name} page={navigation.page} exact={navigation.exact} colorBg={colorBg} />
 ));
 
 
 
-const CreateNavigation = ({ name, page, exact, handleMenuClick }) => {
+const CreateNavigation = ({ colorBg, name, page, exact, handleMenuClick }) => {
     return (
-        <NavLink exact={exact} to={page} onClick={handleMenuClick}>{name}</NavLink>
+        <NavLink exact={exact} to={page} onClick={handleMenuClick} className={`${colorBg}`}>{name}</NavLink>
     )
 }
 
 
-const CreateToolInMenu = ({ handleClickTool, menuInMenuActive, toolInMenuActive, socialInMenuActive }) => {
+const CreateToolInMenu = ({ colorBg, colorTxt, handleClickTool, menuInMenuActive, toolInMenuActive, socialInMenuActive }) => {
     const classRingMenu = () => {
         if (!menuInMenuActive) {
-            return 'ring_active';
+            return `ring_active ${colorBg}`;
         }
         else {
-            return 'ring';
+            return `ring ${colorBg}`;
         }
     }
     const classRingTool = () => {
         if (!toolInMenuActive) {
-            return 'ring_active';
+            return `ring_active ${colorBg}`;
         }
         else {
-            return 'ring';
+            return `ring ${colorBg}`;
         }
     }
     const classRingSocial = () => {
         if (!socialInMenuActive) {
-            return 'ring_active';
+            return `ring_active ${colorBg}`;
         }
         else {
-            return 'ring';
+            return `ring ${colorBg}`;
         }
     }
     return (

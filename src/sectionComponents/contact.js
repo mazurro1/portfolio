@@ -65,6 +65,7 @@ class Contact extends React.Component {
 
 
     render() {
+        const { colorTxt } = this.props;
 
 
         return (
@@ -73,7 +74,7 @@ class Contact extends React.Component {
                     <div className="arrow" onClick={this.handleArrow}>
                         <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
-                    <h1>Kontakt</h1>
+                    <h1 className={`${colorTxt}`}>Kontakt</h1>
                     <p>Masz pytanie? Napisz!</p>
                     <div className="row contactIcon">
                         <CreateIconContact contactList={this.contactList} />

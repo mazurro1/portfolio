@@ -29,15 +29,14 @@ class ErrorComponent extends React.Component {
 
 
     render() {
-
-
+        const { colorTxt } = this.props;
         return (
             <div id="errorComponent" className={this.state.classArrow}>
                 <div className="container">
                     <div className="arrow" onClick={this.handleArrow}>
                         <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
-                    <h1>Error</h1>
+                    <h1 className={`${colorTxt}`}>Error</h1>
                     <div className="row">
 
                     </div>

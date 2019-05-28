@@ -29,7 +29,7 @@ class Portfolio extends React.Component {
 
 
     render() {
-
+        const { colorBg, colorTxt } = this.props;
 
         return (
             <div id="portfolio" className={this.state.classArrow}>
@@ -37,7 +37,7 @@ class Portfolio extends React.Component {
                     <div className="arrow" onClick={this.handleArrow}>
                         <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
-                    <h1>Portfolio</h1>
+                    <h1 className={`${colorTxt}`}>Portfolio</h1>
                     <div className="row">
 
                     </div>

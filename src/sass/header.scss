@@ -10,7 +10,7 @@
         top: 50%;
         transform: translate(0,-50%);
         color: white;
-        // background-color: rgba(0,0,0,0.7);
+        background-color: rgba(0,0,0,0.7);
         padding: 20px 0px;
     }
 
@@ -76,7 +76,7 @@
             p{
                 font-size: 1.5rem;
                 text-align: center;
-                color: #00ccff;
+                // color: #00ccff;
                 font-weight: bold;
                 
             }
@@ -87,7 +87,7 @@
                 border: none;
                 width: 60vw;
                 text-align: center;
-                background: rgba(0,204,255,1);
+                // background: rgba(0,204,255,1);
                 color: white;
                 font-weight: bold;
                 font-size: 1rem;
@@ -102,7 +102,7 @@
                 }
 
                 &:hover{
-                    background-color: rgb(5, 125, 155);
+                    opacity: 0.8;
                 }
             }
             .buttons{
@@ -113,7 +113,9 @@
                     margin: 10px;
                     margin-top: 0px;
                     border-radius: 20px;
-                    border: 2px solid rgba(0,204,255,1);
+                    // border: 2px solid rgba(0,204,255,1);
+                    border-style: solid;
+                    border-width: 2px; 
                     background-color: black;
                     color: white;
                     transition-property: background-color;
@@ -123,8 +125,34 @@
                 }
 
                 button.activeB{
-                    border: 2px solid black;
-                    background-color: rgba(0,204,255,1);
+                    border: 2px solid white;
+                //    filter: brightness(150);
+                    
+                }
+            }
+
+            .buttonsColor{
+                text-align: center;
+
+                button{
+                    padding: 10px 20px;
+                    margin: 10px;
+                    margin-top: 0px;
+                    border-radius: 20px;
+                    // border: 2px solid rgba(0,204,255,1);
+                    border-style: solid;
+                    border-width: 2px; 
+                    background-color: black;
+                    color: white;
+                    transition-property: background-color;
+                    transition-duration: 1s;
+                    transition-timing-function: ease;
+                    
+                }
+
+                button.activeB{
+                    border: 2px solid white;
+                //    filter: brightness(150);
                     
                 }
             }

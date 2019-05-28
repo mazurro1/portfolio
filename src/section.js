@@ -47,16 +47,28 @@ class Section extends React.Component {
 
 
     render() {
+        const { colorBg, colorTxt } = this.props;
         return (
             <section>
-                <CreateRoute routes={this.routes} />
+                <CreateRoute
+                    routes={this.routes}
+                    colorBg={colorBg}
+                    colorTxt={colorTxt} />
             </section>
         );
     }
 }
 
-const CreateRoute = ({ routes }) => {
-    const allRoutes = routes.map(route => <OneRoute key={route.id} path={route.path} component={route.component} exact={route.exact} />)
+const CreateRoute = ({ routes, colorBg, colorTxt }) => {
+    const allRoutes = routes.map(route =>
+        <OneRoute
+            key={route.id}
+            path={route.path}
+            Component={route.component}
+            exact={route.exact}
+            colorBg={colorBg}
+            colorTxt={colorTxt}
+        />)
     return (
         <Switch>
             {allRoutes}
@@ -64,9 +76,13 @@ const CreateRoute = ({ routes }) => {
     )
 }
 
-const OneRoute = ({ path, component, exact }) => {
+const OneRoute = ({ path, Component, exact, colorBg, colorTxt }) => {
     return (
-        <Route path={path} exact={exact} component={component} />
+        <Route
+            path={path}
+            exact={exact}
+            render={(props) => <Component {...props} colorBg={colorBg} colorTxt={colorTxt} />}
+        />
     )
 }
 

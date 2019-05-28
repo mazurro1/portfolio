@@ -76,7 +76,8 @@ class Header extends React.Component {
 
     render() {
         const { welcome } = this.state;
-        const { menuActive, socialInMenuActive, handleChangeImageNumber, color } = this.props;
+        const { menuActive, socialInMenuActive, handleChangeImageNumber, colorBg, colorTxt, handleChangeColor, choseColor } = this.props;
+
         const choseBigImage =
             this.props.choseImage === 1 ? {
                 background: `url(${imgHeader1}) center no-repeat`
@@ -90,7 +91,7 @@ class Header extends React.Component {
         return (
 
             <div className="header" style={choseBigImage}>
-                <h1 className={`${color}`}>{welcome}</h1>
+                <h1>{welcome}</h1>
 
                 {menuActive ?
                     <IfMenuToolActive
@@ -99,6 +100,10 @@ class Header extends React.Component {
                         welcome={this.state.welcome}
                         clickChange={this.handleOnChangeText}
                         toolInMenuActive={this.props.toolInMenuActive}
+                        colorBg={colorBg}
+                        colorTxt={colorTxt}
+                        handleChangeColor={handleChangeColor}
+                        choseColor={choseColor}
                     /> : null}
                 {socialInMenuActive && menuActive ? <CreateIcons icons={this.icons} /> : null}
             </div>
@@ -107,9 +112,18 @@ class Header extends React.Component {
     }
 }
 
-const IfMenuToolActive = ({ welcome, clickChange, toolInMenuActive, handleChangeImageNumber, choseImage }) => {
+const IfMenuToolActive = ({ welcome, clickChange, toolInMenuActive, handleChangeImageNumber, choseImage, colorBg, colorTxt, handleChangeColor, choseColor }) => {
     return (
-        toolInMenuActive ? <CreateForm welcome={welcome} clickChange={clickChange} handleChangeImageNumber={handleChangeImageNumber} choseImage={choseImage} /> : null
+        toolInMenuActive ?
+            <CreateForm
+                welcome={welcome}
+                clickChange={clickChange}
+                handleChangeImageNumber={handleChangeImageNumber} choseImage={choseImage}
+                colorBg={colorBg}
+                colorTxt={colorTxt}
+                handleChangeColor={handleChangeColor}
+                choseColor={choseColor}
+            /> : null
     )
 }
 
@@ -138,34 +152,47 @@ const NewIcon = ({ target, image, link, alt }) => {
     )
 }
 
-const CreateForm = ({ welcome, clickChange, handleChangeImageNumber, choseImage }) => {
+const CreateForm = ({ welcome, clickChange, handleChangeImageNumber, choseImage, colorBg, colorTxt, handleChangeColor, choseColor }) => {
     return (
         <form>
             <div className="row">
                 <label htmlFor="welcomeText" className="col-12">
-                    <p>Wpisz swój tekst powitalny</p>
-                    <input type="text" id="welcomeText" width="48" height="48" value={welcome} onChange={clickChange} />
+                    <p className={`${colorTxt}`}>Wpisz swój tekst powitalny</p>
+                    <input type="text" id="welcomeText" width="48" height="48" value={welcome} onChange={clickChange} className={`${colorBg}`} />
                 </label>
 
                 <label htmlFor="changeImage" className="col-12">
-                    <p>Zmień zdjęcie główne</p>
+                    <p className={`${colorTxt}`}>Zmień zdjęcie główne</p>
                     <div className="buttons">
                         <button
-                            className={choseImage === 1 ? "activeB" : ""}
+                            className={choseImage === 1 ? `activeB` : `${colorTxt}`}
                             onClick={(e) => handleChangeImageNumber(1, e)}>Image 1
                         </button>
                         <button
-                            className={choseImage === 2 ? "activeB" : ""}
+                            className={choseImage === 2 ? `${colorTxt} activeB` : `${colorTxt}`}
                             onClick={(e) => handleChangeImageNumber(2, e)}>Image 2</button>
                         <button
-                            className={choseImage === 3 ? "activeB" : ""}
+                            className={choseImage === 3 ? `${colorTxt} activeB` : `${colorTxt}`}
                             onClick={(e) => handleChangeImageNumber(3, e)}>Image 3</button>
                     </div>
                 </label>
 
                 <label htmlFor="changeColor" className="col-12">
-                    <p>Zmień kolorystyke strony</p>
-                    <input type="text" id="changeColor" width="48" height="48" value={welcome} onChange={clickChange} />
+                    <p className={`${colorTxt}`}>Zmień kolorystyke strony</p>
+                    <div className="buttonsColor">
+                        <button
+                            className={choseColor === 'blue' ? `activeB` : `${colorTxt}`}
+                            onClick={(e) => handleChangeColor(e, 'blue')}>Niebieski</button>
+                        <button
+                            className={choseColor === 'red' ? `activeB` : `${colorTxt}`}
+                            onClick={(e) => handleChangeColor(e, 'red')}>Czerwony</button>
+                        <button
+                            className={choseColor === 'green' ? `activeB` : `${colorTxt}`}
+                            onClick={(e) => handleChangeColor(e, 'green')}>Zielony</button>
+                        <button
+                            className={choseColor === 'gray' ? `activeB` : `${colorTxt}`}
+                            onClick={(e) => handleChangeColor(e, 'gray')}>Szary</button>
+                    </div>
                 </label>
             </div>
         </form>

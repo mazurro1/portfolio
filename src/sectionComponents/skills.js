@@ -98,7 +98,7 @@ class Skills extends React.Component {
 
 
     render() {
-
+        const { colorTxt } = this.props;
 
         return (
             <div id="skills" className={this.state.classArrow}>
@@ -106,7 +106,7 @@ class Skills extends React.Component {
                     <div className="arrow" onClick={this.handleArrow}>
                         <img src={arrowUp} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
-                    <h1>Umiejętności</h1>
+                    <h1 className={`${colorTxt}`}>Umiejętności</h1>
 
                     <p>Lista programów oraz technologii, ktore opanowalem.</p>
 
