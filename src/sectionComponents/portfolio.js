@@ -8,19 +8,22 @@ import ImgPortfolio5 from '../images/websites/portfolio5.png';
 import ImgPortfolio6 from '../images/websites/portfolio6.png';
 import ImgPortfolio7 from '../images/websites/portfolio7.png';
 import ImgPortfolio8 from '../images/websites/portfolio8.png';
-import ImgPortfolio9 from '../images/websites/portfolio9.png';
+// import ImgPortfolio9 from '../images/websites/portfolio9.png';
 import ImgPortfolio10 from '../images/websites/portfolio10.png';
 import ImgPortfolio11 from '../images/websites/portfolio11.png';
 import ImgPortfolio12 from '../images/websites/portfolio12.png';
 import ImgPortfolio13 from '../images/websites/portfolio13.png';
 import ImgPortfolio14 from '../images/websites/portfolio14.png';
+import ImgPortfolio15 from '../images/websites/portfolio15.png';
+import ImgWeb from '../images/web.png';
+import ImgCode from '../images/code.png';
 
 const arrayPortfolioAll = [
     {
         id: 1,
         name: 'Portfolio',
         language: ["HTML5", "CSS3", "SCSS", "JavaScript", "React", "Bootstrap 4"],
-        linkWeb: 'https://mazurro1.github.io/portfolio/',
+        linkWeb: '',
         linkCode: 'https://github.com/mazurro1/portfolio',
         image: ImgPortfolio14,
     },
@@ -30,14 +33,14 @@ const arrayPortfolioAll = [
         language: ["HTML5", "CSS3", "SCSS", "JavaScript", "Bootstrap 4"],
         linkWeb: 'https://www.pc-tech.pl/',
         linkCode: 'https://github.com/mazurro1/pc-tech',
-        image: ImgPortfolio2,
+        image: ImgPortfolio15,
     },
     {
         id: 3,
         name: 'PC-Tech Old',
         language: ["HTML5", "CSS3", "Bootstrap 4"],
-        linkWeb: '',
-        linkCode: '',
+        linkWeb: 'https://mazurro1.github.io/PC-tech-old-v3/',
+        linkCode: 'https://github.com/mazurro1/PC-tech-old-v3',
         image: ImgPortfolio2,
     },
     {
@@ -69,7 +72,7 @@ const arrayPortfolioAll = [
         name: 'Portfolio Old',
         language: ["HTML5", "CSS3", "Bootstrap 4", "JavaScript"],
         linkWeb: '',
-        linkCode: '',
+        linkCode: 'https://github.com/mazurro1/portfolio_oldv2',
         image: ImgPortfolio1,
     },
     {
@@ -96,14 +99,14 @@ const arrayPortfolioAll = [
         linkCode: 'https://github.com/mazurro1/template2',
         image: ImgPortfolio8,
     },
-    {
-        id: 11,
-        name: 'PSP',
-        language: ["HTML5", "CSS", "Flash"],
-        linkWeb: '',
-        linkCode: '',
-        image: ImgPortfolio9,
-    },
+    // {
+    //     id: 11,
+    //     name: 'PSP',
+    //     language: ["HTML5", "CSS", "Flash"],
+    //     linkWeb: '',
+    //     linkCode: '',
+    //     image: ImgPortfolio9,
+    // },
     {
         id: 12,
         name: 'Inter Pako',
@@ -214,10 +217,15 @@ const CreateProjectsOne = ({ image, linkCode, linkWeb, language, name, colorBg }
             <div className="content">
                 <div className="scrollDown">
                     <a href={linkWeb} target="_blank" rel="noopener noreferrer">
-                        <button className={`${colorBg}`}>Live</button>
+                        <button className={`${colorBg}`}>
+                            <img src={ImgWeb} alt="" />
+                        </button>
                     </a>
                     <a href={linkCode} target="_blank" rel="noopener noreferrer">
-                        <button className={`${colorBg}`}>Code</button>
+                        <button className={`${colorBg}`}>
+                            <img src={ImgCode} alt="" />
+                        </button>
+
                     </a>
                 </div>
                 <img src={image} alt="" className="img-fluid" />

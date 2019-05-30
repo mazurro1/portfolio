@@ -157,12 +157,12 @@ const CreateForm = ({ welcome, clickChange, handleChangeImageNumber, choseImage,
         <form>
             <div className="row">
                 <label htmlFor="welcomeText" className="col-12">
-                    <p className={`${colorTxt}`}>Wpisz swój tekst powitalny</p>
+                    <p className={`${colorTxt}`}>Enter your welcome text</p>
                     <input type="text" id="welcomeText" width="48" height="48" value={welcome} onChange={clickChange} className={`${colorBg}`} />
                 </label>
 
                 <label htmlFor="changeImage" className="col-12">
-                    <p className={`${colorTxt}`}>Zmień zdjęcie główne</p>
+                    <p className={`${colorTxt}`}>Change the main photo</p>
                     <div className="buttons">
                         <button
                             className={choseImage === 1 ? `activeB` : `${colorTxt}`}
@@ -178,20 +178,20 @@ const CreateForm = ({ welcome, clickChange, handleChangeImageNumber, choseImage,
                 </label>
 
                 <label htmlFor="changeColor" className="col-12">
-                    <p className={`${colorTxt}`}>Zmień kolorystyke strony</p>
+                    <p className={`${colorTxt}`}>Change the color of the page</p>
                     <div className="buttonsColor">
                         <button
                             className={choseColor === 'blue' ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeColor(e, 'blue')}>Niebieski</button>
+                            onClick={(e) => handleChangeColor(e, 'blue')}>Blue</button>
                         <button
                             className={choseColor === 'red' ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeColor(e, 'red')}>Czerwony</button>
+                            onClick={(e) => handleChangeColor(e, 'red')}>Red</button>
                         <button
                             className={choseColor === 'green' ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeColor(e, 'green')}>Zielony</button>
+                            onClick={(e) => handleChangeColor(e, 'green')}>Green</button>
                         <button
                             className={choseColor === 'gray' ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeColor(e, 'gray')}>Szary</button>
+                            onClick={(e) => handleChangeColor(e, 'gray')}>Orange</button>
                     </div>
                 </label>
             </div>
