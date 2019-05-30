@@ -9,7 +9,7 @@
     @media all and (max-width: 700px){
         &{
             border-top-right-radius: 20%;
-    border-top-left-radius: 20%;
+            border-top-left-radius: 20%;
         }
     }
     h1{
@@ -48,6 +48,12 @@
         margin-bottom: 20px;
         font-weight: bold;
         // background-color: white;
+
+        @media all and (max-width: 548px){
+            &{
+                font-size: 1.4rem;
+            }
+        }
     }
     
     p{
@@ -85,6 +91,11 @@
 
     .website{
         margin-bottom: 200px;
+        @media all and (max-width: 767px){
+            &{
+                margin-bottom: 100px;
+            }
+        }
 
     .content{
         max-width: 500px;
@@ -157,6 +168,12 @@
                             width: 100px;
                             top: 0;
                             transform: translate(0, 0);
+                        }
+                    }
+
+                    @media all and (max-width: 767px){
+                        &{
+                            top: 30%;
                         }
                     }
                 }

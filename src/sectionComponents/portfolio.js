@@ -190,6 +190,9 @@ class Portfolio extends React.Component {
             <div id="portfolio">
                 <div className="container">
                     <h1 className={`${colorTxt}`}>Portfolio</h1>
+                    <div className="search">
+
+                    </div>
                     <div className="row">
 
                         {this.CreateProjects(arrayPortfolio, colorBg)}
