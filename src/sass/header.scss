@@ -69,7 +69,7 @@
             margin-bottom: 20px;
             @media all and (min-width: 768px) {
                 &{
-                    margin-bottom: 60px;
+                    margin-bottom: 0px;
                 }
             }
 
@@ -78,7 +78,11 @@
                 text-align: center;
                 // color: #00ccff;
                 font-weight: bold;
-                
+                @media all and (max-width: 768px) {
+                    &{
+                        font-size: 1.2rem;
+                    }
+                }
             }
 
             input{
@@ -122,6 +126,11 @@
                     transition-duration: 1s;
                     transition-timing-function: ease;
                     
+                    @media all and (max-width: 768px) {
+                        &{
+                            padding: 5px 20px;
+                        }
+                    }
                 }
 
                 button.activeB{
@@ -148,6 +157,11 @@
                     transition-duration: 1s;
                     transition-timing-function: ease;
                     
+                    @media all and (max-width: 768px) {
+                        &{
+                            padding: 5px 20px;
+                        }
+                    }
                 }
 
                 button.activeB{
