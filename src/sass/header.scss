@@ -67,7 +67,7 @@
         
         
         label{
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             @media all and (max-width: 768px) {
                 &{
                     margin-bottom: 10px;
@@ -79,9 +79,11 @@
                 text-align: center;
                 // color: #00ccff;
                 font-weight: bold;
+                
                 @media all and (max-width: 768px) {
                     &{
                         font-size: 1.2rem;
+                        margin: 0;
                     }
                 }
             }
