@@ -18,11 +18,11 @@
         position: fixed;
         z-index: 20;
         overflow: hidden;
-        bottom: 23px;
+        bottom: 0px;
         left: 50%;
         transform: translate(-50%,0);
         background: rgba(0,0,0,0.9);
-        width: 101%;
+        width: 100%;
         box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.9)inset;
 
         .allIcons{
@@ -30,22 +30,23 @@
             padding: 20px;
             
             a{
-                padding: 40px 8vw;
-                
+                padding: 20px 8vw;
+                border-radius: 20px;
       
                 img{
                     width: 50px;
-             
+                    
 
-                    @media all and (max-width: 768px) {
+                    @media all and (max-width: 767px) {
                         &{
                             margin: 25px;
+                            margin: 20px;
                         }
                     }
                 }
 
                 &:hover{
-                    background: rgba(0,0,0,0.9);
+                    background: rgba(255,255,255,0.1);
                     @media all and (max-width: 768px) {
                         &{
                             border-radius: 25px;
@@ -126,9 +127,10 @@
                     transition-duration: 1s;
                     transition-timing-function: ease;
                     
-                    @media all and (max-width: 768px) {
+                    @media all and (max-width: 767px) {
                         &{
-                            padding: 5px 20px;
+                            padding: 5px 10px;
+                            margin: 5px;
                         }
                     }
                 }
@@ -157,9 +159,10 @@
                     transition-duration: 1s;
                     transition-timing-function: ease;
                     
-                    @media all and (max-width: 768px) {
+                    @media all and (max-width: 767px) {
                         &{
-                            padding: 5px 20px;
+                            padding: 5px 10px;
+                            margin: 5px;
                         }
                     }
                 }

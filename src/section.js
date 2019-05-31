@@ -47,7 +47,7 @@ class Section extends React.Component {
 
 
     render() {
-        const { colorBg, colorTxt, arrowUpColor } = this.props;
+        const { colorBg, colorTxt, arrowUpColor, languagePl } = this.props;
         return (
             <section>
                 <CreateRoute
@@ -55,13 +55,14 @@ class Section extends React.Component {
                     colorBg={colorBg}
                     colorTxt={colorTxt}
                     arrowUpColor={arrowUpColor}
+                    languagePl={languagePl}
                 />
             </section>
         );
     }
 }
 
-const CreateRoute = ({ routes, colorBg, colorTxt, arrowUpColor }) => {
+const CreateRoute = ({ routes, colorBg, colorTxt, arrowUpColor, languagePl }) => {
     const allRoutes = routes.map(route =>
         <OneRoute
             key={route.id}
@@ -71,6 +72,7 @@ const CreateRoute = ({ routes, colorBg, colorTxt, arrowUpColor }) => {
             colorBg={colorBg}
             colorTxt={colorTxt}
             arrowUpColor={arrowUpColor}
+            languagePl={languagePl}
         />)
     return (
         <Switch>
@@ -79,12 +81,12 @@ const CreateRoute = ({ routes, colorBg, colorTxt, arrowUpColor }) => {
     )
 }
 
-const OneRoute = ({ arrowUpColor, path, Component, exact, colorBg, colorTxt }) => {
+const OneRoute = ({ arrowUpColor, path, Component, exact, colorBg, colorTxt, languagePl }) => {
     return (
         <Route
             path={path}
             exact={exact}
-            render={(props) => <Component {...props} colorBg={colorBg} colorTxt={colorTxt} arrowUpColor={arrowUpColor} />}
+            render={(props) => <Component {...props} colorBg={colorBg} colorTxt={colorTxt} arrowUpColor={arrowUpColor} languagePl={languagePl} />}
         />
     )
 }

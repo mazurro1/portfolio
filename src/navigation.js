@@ -15,24 +15,28 @@ class Navigation extends React.Component {
         {
             id: 1,
             name: 'O mnie',
+            nameEn: 'About me',
             exact: true,
             page: '/',
         },
         {
             id: 2,
             name: 'Umiejętności',
+            nameEn: 'Skills',
             exact: false,
             page: '/skills',
         },
         {
             id: 3,
             name: 'Portfolio',
+            nameEn: 'Portfolio',
             exact: false,
             page: '/portfolio',
         },
         {
             id: 4,
             name: 'Kontakt',
+            nameEn: 'Contact',
             exact: false,
             page: '/contact',
         },
@@ -49,7 +53,7 @@ class Navigation extends React.Component {
     }
 
     render() {
-        const { menuActive, colorBg, colorTxt } = this.props;
+        const { menuActive, colorBg, colorTxt, languagePl } = this.props;
         const classStyleBar = this.selectClass();
 
 
@@ -82,6 +86,7 @@ class Navigation extends React.Component {
                         socialInMenuActive={this.props.socialInMenuActive}
                         colorBg={colorBg}
                         colorTxt={colorTxt}
+
                     />
                     : null}
                 {menuActive ?
@@ -90,6 +95,7 @@ class Navigation extends React.Component {
                         handleMenuClick={this.props.handleMenuClick}
                         menuInMenuActive={this.props.menuInMenuActive}
                         colorBg={colorBg}
+                        languagePl={languagePl}
                     /> : null}
 
             </>
@@ -100,25 +106,30 @@ class Navigation extends React.Component {
 
 
 
-const CreateMenuBg = ({ menuInMenuActive, handleMenuClick, navigations, colorBg }) => {
+const CreateMenuBg = ({ menuInMenuActive, handleMenuClick, navigations, colorBg, languagePl }) => {
     return (
         <div className="menu">
-            {menuInMenuActive ? Menu(handleMenuClick, navigations, colorBg) : null}
+            {menuInMenuActive ? Menu(handleMenuClick, navigations, colorBg, languagePl) : null}
         </div>
     )
 }
 
 
 
-const Menu = (handleMenuClick, navigations, colorBg) => navigations.map(navigation => (
-    <CreateNavigation key={navigation.id} handleMenuClick={handleMenuClick} name={navigation.name} page={navigation.page} exact={navigation.exact} colorBg={colorBg} />
+const Menu = (handleMenuClick, navigations, colorBg, languagePl) => navigations.map(navigation => (
+    <CreateNavigation key={navigation.id} handleMenuClick={handleMenuClick} name={navigation.name} page={navigation.page} exact={navigation.exact} colorBg={colorBg} languagePl={languagePl} nameEn={navigation.nameEn} />
 ));
 
 
 
-const CreateNavigation = ({ colorBg, name, page, exact, handleMenuClick }) => {
+const CreateNavigation = ({ colorBg, name, nameEn, page, exact, handleMenuClick, languagePl }) => {
     return (
-        <NavLink exact={exact} to={page} onClick={handleMenuClick} className={`${colorBg}`}>{name}</NavLink>
+        <>
+            {languagePl ?
+                <NavLink exact={exact} to={page} onClick={handleMenuClick} className={`${colorBg}`}>{name}</NavLink>
+                :
+                <NavLink exact={exact} to={page} onClick={handleMenuClick} className={`${colorBg}`}>{nameEn}</NavLink>}
+        </>
     )
 }
 

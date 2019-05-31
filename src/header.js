@@ -16,6 +16,7 @@ class Header extends React.Component {
     }
 
     text = 'Witam w moim portfolio!';
+    textEn = 'Welcome to my portfolio!'
     icons = [
         {
             id: 1,
@@ -53,7 +54,17 @@ class Header extends React.Component {
         })
     }
 
-
+    handleChangeLanguageWelcome = (language) => {
+        if (language) {
+            this.setState({
+                welcome: this.text,
+            })
+        } else {
+            this.setState({
+                welcome: this.textEn,
+            })
+        }
+    }
 
     componentDidMount() {
 
@@ -76,7 +87,7 @@ class Header extends React.Component {
 
     render() {
         const { welcome } = this.state;
-        const { menuActive, socialInMenuActive, handleChangeImageNumber, colorBg, colorTxt, handleChangeColor, choseColor } = this.props;
+        const { menuActive, socialInMenuActive, handleChangeImageNumber, colorBg, colorTxt, handleChangeColor, choseColor, languagePl, handleChangeLanguage } = this.props;
 
         const choseBigImage =
             this.props.choseImage === 1 ? {
@@ -104,6 +115,9 @@ class Header extends React.Component {
                         colorTxt={colorTxt}
                         handleChangeColor={handleChangeColor}
                         choseColor={choseColor}
+                        languagePl={languagePl}
+                        handleChangeLanguage={handleChangeLanguage}
+                        handleChangeLanguageWelcome={this.handleChangeLanguageWelcome}
                     /> : null}
                 {socialInMenuActive && menuActive ? <CreateIcons icons={this.icons} /> : null}
             </div>
@@ -112,7 +126,7 @@ class Header extends React.Component {
     }
 }
 
-const IfMenuToolActive = ({ welcome, clickChange, toolInMenuActive, handleChangeImageNumber, choseImage, colorBg, colorTxt, handleChangeColor, choseColor }) => {
+const IfMenuToolActive = ({ welcome, clickChange, toolInMenuActive, handleChangeImageNumber, choseImage, colorBg, colorTxt, handleChangeColor, choseColor, languagePl, handleChangeLanguage, handleChangeLanguageWelcome }) => {
     return (
         toolInMenuActive ?
             <CreateForm
@@ -123,6 +137,9 @@ const IfMenuToolActive = ({ welcome, clickChange, toolInMenuActive, handleChange
                 colorTxt={colorTxt}
                 handleChangeColor={handleChangeColor}
                 choseColor={choseColor}
+                languagePl={languagePl}
+                handleChangeLanguage={handleChangeLanguage}
+                handleChangeLanguageWelcome={handleChangeLanguageWelcome}
             /> : null
     )
 }
@@ -144,7 +161,7 @@ const CreateIcons = ({ icons }) => {
 
 const NewIcon = ({ target, image, link, alt }) => {
     return (
-        <div className="col-md-3 col-sm-6 col-12 text-center">
+        <div className="col-md-3 col-6 text-center">
             <a href={link} target={target}>
                 <img src={image} alt={alt} />
             </a>
@@ -152,46 +169,93 @@ const NewIcon = ({ target, image, link, alt }) => {
     )
 }
 
-const CreateForm = ({ welcome, clickChange, handleChangeImageNumber, choseImage, colorBg, colorTxt, handleChangeColor, choseColor }) => {
+const CreateForm = ({ welcome, clickChange, handleChangeImageNumber, choseImage, colorBg, colorTxt, handleChangeColor, choseColor, languagePl, handleChangeLanguage, handleChangeLanguageWelcome }) => {
     return (
         <form>
             <div className="row">
                 <label htmlFor="welcomeText" className="col-12">
-                    <p className={`${colorTxt}`}>Enter your welcome text</p>
+                    <p className={`${colorTxt}`}>
+                        {languagePl ? 'Wpisz swój tekst powitalny' : 'Enter your welcome text'}
+                    </p>
                     <input type="text" id="welcomeText" width="48" height="48" value={welcome} onChange={clickChange} className={`${colorBg}`} />
                 </label>
 
                 <label htmlFor="changeImage" className="col-12">
-                    <p className={`${colorTxt}`}>Change the main photo</p>
+                    <p className={`${colorTxt}`}>
+
+                        {languagePl ? 'Zmień główne zdjęcie' : 'Change the main photo'}
+                    </p>
                     <div className="buttons">
                         <button
                             className={choseImage === 1 ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeImageNumber(1, e)}>Image 1
+                            onClick={(e) => handleChangeImageNumber(1, e)}>
+
+                            {languagePl ? 'Zdjęcie 1' : 'Image 1'}
                         </button>
                         <button
                             className={choseImage === 2 ? `${colorTxt} activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeImageNumber(2, e)}>Image 2</button>
+                            onClick={(e) => handleChangeImageNumber(2, e)}>
+                            {languagePl ? 'Zdjęcie 2' : 'Image 2'}
+                        </button>
                         <button
                             className={choseImage === 3 ? `${colorTxt} activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeImageNumber(3, e)}>Image 3</button>
+                            onClick={(e) => handleChangeImageNumber(3, e)}>
+                            {languagePl ? 'Zdjęcie 3' : 'Image 3'}
+                        </button>
                     </div>
                 </label>
 
                 <label htmlFor="changeColor" className="col-12">
-                    <p className={`${colorTxt}`}>Change the color of the page</p>
+                    <p className={`${colorTxt}`}>
+                        {languagePl ? 'Zmień kolorystykę strony' : 'Change the color of the page'}
+                    </p>
                     <div className="buttonsColor">
                         <button
                             className={choseColor === 'blue' ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeColor(e, 'blue')}>Blue</button>
+                            onClick={(e) => handleChangeColor(e, 'blue')}>
+                            {languagePl ? 'Niebieski' : 'Blue'}
+                        </button>
                         <button
                             className={choseColor === 'red' ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeColor(e, 'red')}>Red</button>
+                            onClick={(e) => handleChangeColor(e, 'red')}>
+                            {languagePl ? 'Czerwony' : 'Red'}
+                        </button>
                         <button
                             className={choseColor === 'green' ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeColor(e, 'green')}>Green</button>
+                            onClick={(e) => handleChangeColor(e, 'green')}>
+                            {languagePl ? 'Zielony' : 'Green'}
+                        </button>
                         <button
                             className={choseColor === 'gray' ? `activeB` : `${colorTxt}`}
-                            onClick={(e) => handleChangeColor(e, 'gray')}>Orange</button>
+                            onClick={(e) => handleChangeColor(e, 'gray')}>
+                            {languagePl ? 'Pomarańczowy' : 'Orange'}
+                        </button>
+                    </div>
+                </label>
+                <label htmlFor="changeColor" className="col-12">
+                    <p className={`${colorTxt}`}>
+                        {languagePl ? 'Zmień język' : 'Change language'}
+                    </p>
+                    <div className="buttonsColor">
+                        <button
+                            className={languagePl ? `activeB` : `${colorTxt}`}
+                            onClick={(e) => {
+                                handleChangeLanguage(e, true)
+                                handleChangeLanguageWelcome(true)
+                            }
+                            }>
+                            {languagePl ? 'Polski' : 'Polish'}
+                        </button>
+                        <button
+                            className={!languagePl ? `activeB` : `${colorTxt}`}
+
+                            onClick={(e) => {
+                                handleChangeLanguage(e, false)
+                                handleChangeLanguageWelcome(false)
+                            }}
+                        >
+                            {languagePl ? 'Angielski' : 'English'}
+                        </button>
                     </div>
                 </label>
             </div>

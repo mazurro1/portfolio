@@ -7,9 +7,12 @@ class Footer extends React.Component {
     }
 
     render() {
+        const { languagePl } = this.props;
         return (
             <div className="container">
-                © 2019 Hubert Mazur | Wszelkie prawa zastrzeżone.
+                {languagePl ? '© 2019 Hubert Mazur | Wszelkie prawa zastrzeżone.'
+                    :
+                    '© 2019 Hubert Mazur | All rights reserved.'}
             </div>
         )
     }

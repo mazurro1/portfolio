@@ -64,7 +64,7 @@ class Contact extends React.Component {
 
 
     render() {
-        const { colorTxt, arrowUpColor } = this.props;
+        const { colorTxt, arrowUpColor, languagePl } = this.props;
 
 
         return (
@@ -73,8 +73,12 @@ class Contact extends React.Component {
                     <div className="arrow" onClick={this.handleArrow}>
                         <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
-                    <h1 className={`${colorTxt}`}>Kontakt</h1>
-                    <p>Masz pytanie? Napisz!</p>
+                    <h1 className={`${colorTxt}`}>
+                        {languagePl ? 'Kontakt' : 'Contact'}
+                    </h1>
+                    <p>
+                        {languagePl ? 'Masz pytanie? Napisz do mnie!' : 'Do you have a question? Write to me!'}
+                    </p>
                     <div className="row contactIcon">
                         <CreateIconContact contactList={this.contactList} />
                     </div>

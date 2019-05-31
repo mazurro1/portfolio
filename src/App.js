@@ -25,6 +25,7 @@ class App extends React.Component {
     colorTxt: "blueTxt",
     choseColor: 'blue',
     arrowUpColor: arrowUpBlue,
+    languagePl: true,
   }
 
 
@@ -100,6 +101,13 @@ class App extends React.Component {
 
   }
 
+  handleChangeLanguage = (e, language) => {
+    e.preventDefault();
+    this.setState({
+      languagePl: language,
+    });
+  }
+
   render() {
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL}>
@@ -115,6 +123,7 @@ class App extends React.Component {
             choseImage={this.state.choseImage}
             colorBg={this.state.colorBg}
             colorTxt={this.state.colorTxt}
+            languagePl={this.state.languagePl}
           />
         </nav>
         <header>
@@ -128,6 +137,8 @@ class App extends React.Component {
             colorTxt={this.state.colorTxt}
             handleChangeColor={this.handleChangeColor}
             choseColor={this.state.choseColor}
+            languagePl={this.state.languagePl}
+            handleChangeLanguage={this.handleChangeLanguage}
           />
         </header>
         <section>
@@ -135,10 +146,13 @@ class App extends React.Component {
             colorBg={this.state.colorBg}
             colorTxt={this.state.colorTxt}
             arrowUpColor={this.state.arrowUpColor}
+            languagePl={this.state.languagePl}
           />
         </section>
         <footer>
-          <Footer />
+          <Footer
+            languagePl={this.state.languagePl}
+          />
         </footer>
       </BrowserRouter>
     );

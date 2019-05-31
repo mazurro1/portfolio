@@ -97,7 +97,7 @@ class Skills extends React.Component {
 
 
     render() {
-        const { colorTxt, arrowUpColor } = this.props;
+        const { colorTxt, arrowUpColor, languagePl } = this.props;
 
         return (
             <div id="skills" className={this.state.classArrow}>
@@ -105,9 +105,13 @@ class Skills extends React.Component {
                     <div className="arrow" onClick={this.handleArrow}>
                         <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
                     </div>
-                    <h1 className={`${colorTxt}`}>Umiejętności</h1>
+                    <h1 className={`${colorTxt}`}>
+                        {languagePl ? 'Umiejętności' : 'Skills'}
+                    </h1>
 
-                    <p>Lista programów oraz technologii, ktore opanowalem.</p>
+                    <p>
+                        {languagePl ? 'Lista programów oraz technologii, ktore opanowalem.' : 'List of programs and technology that I have mastered.'}
+                    </p>
 
                     <div className="row">
                         <div className="col icons">
