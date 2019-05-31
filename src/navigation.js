@@ -53,9 +53,9 @@ class Navigation extends React.Component {
     }
 
     render() {
-        const { menuActive, colorBg, colorTxt, languagePl } = this.props;
+        const { menuActive, colorBg, colorTxt, languagePl, handleBarClick, handleMenuClickTool, toolInMenuActive, menuInMenuActive, socialInMenuActive, handleMenuClick } = this.props;
         const classStyleBar = this.selectClass();
-
+        const { navigations } = this;
 
 
         return (
@@ -68,7 +68,7 @@ class Navigation extends React.Component {
                             </div>
                         </div>
                         <div className="col-lg-2 col-2">
-                            <div className={classStyleBar} onClick={this.props.handleBarClick}>
+                            <div className={classStyleBar} onClick={handleBarClick}>
                                 <div className="all">
                                     <div className="first"></div>
                                     <div className="second"></div>
@@ -81,20 +81,19 @@ class Navigation extends React.Component {
 
                 {menuActive ?
                     <CreateToolInMenu
-                        handleClickTool={this.props.handleMenuClickTool}
-                        toolInMenuActive={this.props.toolInMenuActive}
-                        menuInMenuActive={this.props.menuInMenuActive}
-                        socialInMenuActive={this.props.socialInMenuActive}
+                        handleClickTool={handleMenuClickTool}
+                        toolInMenuActive={toolInMenuActive}
+                        menuInMenuActive={menuInMenuActive}
+                        socialInMenuActive={socialInMenuActive}
                         colorBg={colorBg}
                         colorTxt={colorTxt}
-
                     />
                     : null}
                 {menuActive ?
                     <CreateMenuBg
-                        navigations={this.navigations}
-                        handleMenuClick={this.props.handleMenuClick}
-                        menuInMenuActive={this.props.menuInMenuActive}
+                        navigations={navigations}
+                        handleMenuClick={handleMenuClick}
+                        menuInMenuActive={menuInMenuActive}
                         colorBg={colorBg}
                         languagePl={languagePl}
                     /> : null}

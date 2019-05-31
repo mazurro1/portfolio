@@ -11,6 +11,8 @@ import arrowUpGreen from './images/arrowUpGreen.png';
 import arrowUpGray from './images/arrowUpGray.png';
 
 
+
+
 class App extends React.Component {
 
 
@@ -25,8 +27,8 @@ class App extends React.Component {
     choseColor: 'blue',
     arrowUpColor: arrowUpBlue,
     languagePl: true,
+    api: '',
   }
-
 
   handleChangeImageNumber = (index, e) => {
     e.preventDefault();
@@ -108,49 +110,51 @@ class App extends React.Component {
   }
 
   render() {
+    const { menuActive, menuInMenuActive, toolInMenuActive, socialInMenuActive, choseImage, colorBg, colorTxt, languagePl, choseColor, arrowUpColor } = this.state;
+    const { handleMenuClick, handleBarClick, handleMenuClickTool, handleChangeImageNumber, handleChangeColor, handleChangeLanguage } = this;
     return (
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <nav>
           <Navigation
-            menuActive={this.state.menuActive}
-            handleMenuClick={this.handleMenuClick}
-            handleBarClick={this.handleBarClick}
-            handleMenuClickTool={this.handleMenuClickTool}
-            menuInMenuActive={this.state.menuInMenuActive}
-            toolInMenuActive={this.state.toolInMenuActive}
-            socialInMenuActive={this.state.socialInMenuActive}
-            choseImage={this.state.choseImage}
-            colorBg={this.state.colorBg}
-            colorTxt={this.state.colorTxt}
-            languagePl={this.state.languagePl}
+            menuActive={menuActive}
+            handleMenuClick={handleMenuClick}
+            handleBarClick={handleBarClick}
+            handleMenuClickTool={handleMenuClickTool}
+            menuInMenuActive={menuInMenuActive}
+            toolInMenuActive={toolInMenuActive}
+            socialInMenuActive={socialInMenuActive}
+            choseImage={choseImage}
+            colorBg={colorBg}
+            colorTxt={colorTxt}
+            languagePl={languagePl}
           />
         </nav>
         <header>
           <Header
-            menuActive={this.state.menuActive}
-            toolInMenuActive={this.state.toolInMenuActive}
-            socialInMenuActive={this.state.socialInMenuActive}
-            choseImage={this.state.choseImage}
-            handleChangeImageNumber={this.handleChangeImageNumber}
-            colorBg={this.state.colorBg}
-            colorTxt={this.state.colorTxt}
-            handleChangeColor={this.handleChangeColor}
-            choseColor={this.state.choseColor}
-            languagePl={this.state.languagePl}
-            handleChangeLanguage={this.handleChangeLanguage}
+            menuActive={menuActive}
+            toolInMenuActive={toolInMenuActive}
+            socialInMenuActive={socialInMenuActive}
+            choseImage={choseImage}
+            handleChangeImageNumber={handleChangeImageNumber}
+            colorBg={colorBg}
+            colorTxt={colorTxt}
+            handleChangeColor={handleChangeColor}
+            choseColor={choseColor}
+            languagePl={languagePl}
+            handleChangeLanguage={handleChangeLanguage}
           />
         </header>
         <section>
           <Section
-            colorBg={this.state.colorBg}
-            colorTxt={this.state.colorTxt}
-            arrowUpColor={this.state.arrowUpColor}
-            languagePl={this.state.languagePl}
+            colorBg={colorBg}
+            colorTxt={colorTxt}
+            arrowUpColor={arrowUpColor}
+            languagePl={languagePl}
           />
         </section>
         <footer>
           <Footer
-            languagePl={this.state.languagePl}
+            languagePl={languagePl}
           />
         </footer>
       </BrowserRouter>

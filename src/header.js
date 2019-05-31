@@ -84,16 +84,16 @@ class Header extends React.Component {
         clearInterval(this.indexInterval);
     }
 
-
     render() {
         const { welcome } = this.state;
-        const { menuActive, socialInMenuActive, handleChangeImageNumber, colorBg, colorTxt, handleChangeColor, choseColor, languagePl, handleChangeLanguage } = this.props;
+        const { menuActive, socialInMenuActive, handleChangeImageNumber, colorBg, colorTxt, handleChangeColor, choseColor, languagePl, handleChangeLanguage, choseImage, toolInMenuActive } = this.props;
+        const { handleOnChangeText, handleChangeLanguageWelcome } = this;
 
         const choseBigImage =
-            this.props.choseImage === 1 ? {
+            choseImage === 1 ? {
                 background: `url(${imgHeader1}) center no-repeat`
             } :
-                this.props.choseImage === 2 ? {
+                choseImage === 2 ? {
                     background: `url(${imgHeader2}) center no-repeat`
                 } : {
                         background: `url(${imgHeader3}) center no-repeat`
@@ -106,18 +106,18 @@ class Header extends React.Component {
 
                 {menuActive ?
                     <IfMenuToolActive
-                        choseImage={this.props.choseImage}
+                        choseImage={choseImage}
                         handleChangeImageNumber={handleChangeImageNumber}
-                        welcome={this.state.welcome}
-                        clickChange={this.handleOnChangeText}
-                        toolInMenuActive={this.props.toolInMenuActive}
+                        welcome={welcome}
+                        clickChange={handleOnChangeText}
+                        toolInMenuActive={toolInMenuActive}
                         colorBg={colorBg}
                         colorTxt={colorTxt}
                         handleChangeColor={handleChangeColor}
                         choseColor={choseColor}
                         languagePl={languagePl}
                         handleChangeLanguage={handleChangeLanguage}
-                        handleChangeLanguageWelcome={this.handleChangeLanguageWelcome}
+                        handleChangeLanguageWelcome={handleChangeLanguageWelcome}
                     /> : null}
                 {socialInMenuActive && menuActive ? <CreateIcons icons={this.icons} /> : null}
             </div>
@@ -262,7 +262,5 @@ const CreateForm = ({ welcome, clickChange, handleChangeImageNumber, choseImage,
         </form>
     )
 }
-
-
 
 export default Header;

@@ -212,8 +212,9 @@ const CreateProjectsOne = ({ image, linkCode, linkWeb, language, name, colorBg }
 
     return (
         <div className="col-12 website">
-            <h2 className={`${colorBg}`}>{name}</h2>
-
+            <h2 className={`${colorBg}`}>
+                {name}
+            </h2>
             <div className="content">
                 <div className="scrollDown">
                     <a href={linkWeb} target="_blank" rel="noopener noreferrer">
@@ -236,7 +237,6 @@ const CreateProjectsOne = ({ image, linkCode, linkWeb, language, name, colorBg }
         </div>
     )
 };
-
 const CreateLang = ({ lang, colorBg }) => {
     return (
         <div className={`${colorBg} badge badge-pill`}>
@@ -244,6 +244,4 @@ const CreateLang = ({ lang, colorBg }) => {
         </div>
     )
 }
-
-
 export default Portfolio;

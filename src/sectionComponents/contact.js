@@ -5,15 +5,12 @@ import messenger from '../images/messenger.png';
 import linkedin from '../images/linkedin.png';
 import github from '../images/github.png';
 
-
-
 class Contact extends React.Component {
     state = {
         arrowActive: true,
         classArrow: 'noActive',
         classArrowRotate: 'noActiveArrow'
     }
-
     contactList = [
         {
             id: 1,
@@ -44,7 +41,6 @@ class Contact extends React.Component {
             alt: 'github',
         },
     ];
-
     handleArrow = e => {
         if (this.state.arrowActive) {
             this.setState(prevState => ({
@@ -59,19 +55,18 @@ class Contact extends React.Component {
                 classArrowRotate: 'noActiveArrow',
             }))
         }
-
     }
-
 
     render() {
         const { colorTxt, arrowUpColor, languagePl } = this.props;
-
+        const { classArrow, classArrowRotate } = this.state;
+        const { handleArrow, contactList } = this;
 
         return (
-            <div id="contact" className={this.state.classArrow}>
+            <div id="contact" className={classArrow}>
                 <div className="container">
-                    <div className="arrow" onClick={this.handleArrow}>
-                        <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
+                    <div className="arrow" onClick={handleArrow}>
+                        <img src={arrowUpColor} alt="arrow" className={classArrowRotate} />
                     </div>
                     <h1 className={`${colorTxt}`}>
                         {languagePl ? 'Kontakt' : 'Contact'}
@@ -80,14 +75,13 @@ class Contact extends React.Component {
                         {languagePl ? 'Masz pytanie? Napisz do mnie!' : 'Do you have a question? Write to me!'}
                     </p>
                     <div className="row contactIcon">
-                        <CreateIconContact contactList={this.contactList} />
+                        <CreateIconContact contactList={contactList} />
                     </div>
                 </div>
             </div>
         );
     }
 }
-
 
 const CreateIconContact = ({ contactList }) => {
     const doIcons = contactList.map(item => {
@@ -105,7 +99,5 @@ const CreateIconContact = ({ contactList }) => {
         </>
     )
 }
-
-
 
 export default Contact;

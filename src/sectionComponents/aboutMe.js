@@ -29,12 +29,14 @@ class AboutMe extends React.Component {
 
     render() {
         const { colorBg, colorTxt, arrowUpColor, languagePl } = this.props;
+        const { classArrow, classArrowRotate } = this.state;
+        const { handleArrow } = this;
 
         return (
-            <div id="aboutMe" className={this.state.classArrow}>
+            <div id="aboutMe" className={classArrow}>
                 <div className="container">
-                    <div className="arrow" onClick={this.handleArrow}>
-                        <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
+                    <div className="arrow" onClick={handleArrow}>
+                        <img src={arrowUpColor} alt="arrow" className={classArrowRotate} />
                     </div>
                     <h1 className={`${colorTxt}`}>
                         {languagePl ? 'O mnie' : 'About me'}

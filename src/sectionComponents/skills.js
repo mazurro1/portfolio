@@ -92,18 +92,18 @@ class Skills extends React.Component {
                 classArrowRotate: 'noActiveArrow',
             }))
         }
-
     }
-
 
     render() {
         const { colorTxt, arrowUpColor, languagePl } = this.props;
+        const { classArrow, classArrowRotate } = this.state;
+        const { handleArrow, icons } = this;
 
         return (
-            <div id="skills" className={this.state.classArrow}>
+            <div id="skills" className={classArrow}>
                 <div className="container">
-                    <div className="arrow" onClick={this.handleArrow}>
-                        <img src={arrowUpColor} alt="arrow" className={this.state.classArrowRotate} />
+                    <div className="arrow" onClick={handleArrow}>
+                        <img src={arrowUpColor} alt="arrow" className={classArrowRotate} />
                     </div>
                     <h1 className={`${colorTxt}`}>
                         {languagePl ? 'Umiejętności' : 'Skills'}
@@ -115,7 +115,7 @@ class Skills extends React.Component {
 
                     <div className="row">
                         <div className="col icons">
-                            <CreateIcons icons={this.icons} />
+                            <CreateIcons icons={icons} />
                         </div>
                     </div>
                 </div>

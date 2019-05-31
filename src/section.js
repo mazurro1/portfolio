@@ -48,10 +48,11 @@ class Section extends React.Component {
 
     render() {
         const { colorBg, colorTxt, arrowUpColor, languagePl } = this.props;
+        const { routes } = this;
         return (
             <section>
                 <CreateRoute
-                    routes={this.routes}
+                    routes={routes}
                     colorBg={colorBg}
                     colorTxt={colorTxt}
                     arrowUpColor={arrowUpColor}
