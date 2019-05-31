@@ -144,6 +144,37 @@ nav{
 
         
     }
+ 
+        .sectionName{
+            position: absolute;
+            z-index: 5;
+            // color: #0cf;
+            text-align: center;
+            width: 45%;
+            background-color: rgba(0,0,0,0.8);
+            // background-color: #0cf;
+            border-bottom-left-radius: 90px;
+            border-bottom-right-radius: 90px;
+            left: 50%;
+            transform: translate(-50%,0);
+            @media all and (max-width: 767px){
+                &{
+                    width: 90%;
+                }
+            }
+    
+            @media all and (min-width: 1200px){
+                &{
+                    width: 30%;
+                }
+            }
+            h1{
+                position: relative;
+                margin-top: 100px;
+                padding-bottom: 20px;
+            }
+        }
+    
 }
 
 .menu{

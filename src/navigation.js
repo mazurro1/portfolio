@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import './sass/nav.scss';
 import menu from './images/menuActive.png';
 import tool from './images/toolActive.png';
@@ -78,6 +78,7 @@ class Navigation extends React.Component {
                         </div>
                     </div>
                 </div>
+
                 {menuActive ?
                     <CreateToolInMenu
                         handleClickTool={this.props.handleMenuClickTool}
@@ -97,6 +98,29 @@ class Navigation extends React.Component {
                         colorBg={colorBg}
                         languagePl={languagePl}
                     /> : null}
+
+                <div className={`sectionName ${colorTxt}`}>
+                    <Route exact path="/" render={() => (
+                        <h1>
+                            {languagePl ? 'O mnie' : 'About me'}
+                        </h1>
+                    )} />
+                    <Route path="/skills" render={() => (
+                        <h1>
+                            {languagePl ? 'Umiejętności' : 'Skills'}
+                        </h1>
+                    )} />
+                    <Route path="/portfolio" render={() => (
+                        <h1>
+                            {languagePl ? 'Portfolio' : 'Portfolio'}
+                        </h1>
+                    )} />
+                    <Route path="/contact" render={() => (
+                        <h1>
+                            {languagePl ? 'Kontakt' : 'Contact'}
+                        </h1>
+                    )} />
+                </div>
 
             </>
         )

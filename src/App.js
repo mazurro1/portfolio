@@ -11,7 +11,6 @@ import arrowUpGreen from './images/arrowUpGreen.png';
 import arrowUpGray from './images/arrowUpGray.png';
 
 
-
 class App extends React.Component {
 
 
